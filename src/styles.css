@@ -1,0 +1,19 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+table {
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+tr,
+td,
+th {
+  border: 1px solid #000;
+}
+
+tr:nth-child(even) {
+  background-color: #ddd;
+}
