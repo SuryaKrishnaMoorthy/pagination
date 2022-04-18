@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import DropDown from "./DropDown";
+import Pagination from "./Pagination";
 import data from "./data";
 import "./styles.css";
 
@@ -40,6 +41,7 @@ export default function App() {
           )}
         </tbody>
       </table>
+      <Pagination rowsPerPage={rowsPerPage} totalRows={data.length} />
     </div>
   );
 }

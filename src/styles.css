@@ -17,3 +17,17 @@ th {
 tr:nth-child(even) {
   background-color: #ddd;
 }
+
+ul {
+  list-style: none;
+  display: flex;
+}
+
+li {
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #ddd;
+}
