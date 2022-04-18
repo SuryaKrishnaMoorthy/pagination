@@ -4,13 +4,16 @@ import data from "./data";
 import "./styles.css";
 
 export default function App() {
-  const [dataPerPage, setDataPerPage] = useState(5);
-  const [startIndex, setStartIndex] = useState(0);
-  const [endIndex, setEndIndex] = useState(0);
+  const [currentPage, setCurrentpage] = useState(1);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
 
   const handleDropDownChange = (e) => {
-    setDataPerPage(e.target.value);
+    setRowsPerPage(e.target.value);
   };
+
+  const indexOfLastRow = currentPage * rowsPerPage;
+  const indexOfFirstRow = indexOfLastRow - rowsPerPage;
+  const currentData = data.slice(indexOfFirstRow, indexOfLastRow);
 
   return (
     <div className="App">
@@ -25,15 +28,13 @@ export default function App() {
         </thead>
         <tbody>
           {data.length >= 1 ? (
-            data
-              .slice(startIndex, startIndex + dataPerPage)
-              .map(({ id, name, height, country }) => (
-                <tr key={id}>
-                  <td>{name}</td>
-                  <td>{height}</td>
-                  <td>{country}</td>
-                </tr>
-              ))
+            currentData.map(({ id, name, height, country }) => (
+              <tr key={id}>
+                <td>{name}</td>
+                <td>{height}</td>
+                <td>{country}</td>
+              </tr>
+            ))
           ) : (
             <tr>No records found</tr>
           )}
